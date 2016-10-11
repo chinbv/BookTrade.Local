@@ -1,6 +1,7 @@
 package com.cmsc355.curry_crackers_cats.booktrade;
 
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -37,6 +38,12 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
             case R.id.bLogin:
                 String userName = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
+
+                UserManager userManager = UserManager.getInstanceWithContext(getApplicationContext());
+                if( userManager.authenticate(userName, password) == true) {
+
+                    startActivity(new Intent(this, ProfileViewActivity.class));
+                }
 
 
                 break;

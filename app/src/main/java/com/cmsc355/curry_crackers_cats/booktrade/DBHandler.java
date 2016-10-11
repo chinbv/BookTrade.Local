@@ -6,6 +6,7 @@ package com.cmsc355.curry_crackers_cats.booktrade;
  *
  */
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Date;
 import java.util.Locale;
@@ -86,8 +87,8 @@ public class DBHandler extends SQLiteOpenHelper {
 				+ KEY_content + " BLOB NOT NULL, " + KEY_userONE + " TEXT NOT NULL, " + KEY_userTWO + " TEXT NOT NULL " + KEY_timestamp+ " TEXT NOT NULL" + ")";
 
 		db.execSQL(CREATE_USER_INFO_TABLE);
-		db.execSQL(CREATE_TEXTBOOK_INFO_TABLE);
-		db.execSQL(CREATE_MESSAGE_HISTORY_TABLE);
+//		db.execSQL(CREATE_TEXTBOOK_INFO_TABLE);
+//		db.execSQL(CREATE_MESSAGE_HISTORY_TABLE);
 	}
 
 	@Override
@@ -186,6 +187,23 @@ public class DBHandler extends SQLiteOpenHelper {
 		return users;
 	}
 
+	public User findUserWithUserName(String userName) {
+		List<User> allUsers = getAllUsers();
+		Iterator<User> userIterator = allUsers.iterator();
+
+		while( userIterator.hasNext() ) {
+
+			User anUser = userIterator.next();
+			System.out.println("find user is " + anUser.getUserName());
+			if(anUser.getUserName().compareTo(userName) == 0) {
+				return anUser;
+			}
+		}
+
+		return null;
+
+	}
+
 	//adding new textbook
 	public long addTextbook(Textbook textbook) {
 		SQLiteDatabase db = this.getWritableDatabase();
@@ -200,7 +218,7 @@ public class DBHandler extends SQLiteOpenHelper {
 		values.put(KEY_userID, textbook.getUserID());
 		//values.put(KEY_image, textbook.get());
 
-		//inserting rows
+		//insertingUser anUser = userIterator.next(); rows
 		long tbID = db.insert(table_txtbkInfo, null, values);
 
 		return tbID;

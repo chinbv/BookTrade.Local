@@ -7,3 +7,7 @@
 /build
 /captures
 .externalNativeBuild
+
+app/src/main/res/layout/activity_rule.xml
+
+app/src/test/java/com/cmsc355/curry_crackers_cats/booktrade/ActivityRule.java

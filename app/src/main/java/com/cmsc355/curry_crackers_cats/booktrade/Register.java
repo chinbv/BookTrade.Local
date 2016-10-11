@@ -35,9 +35,12 @@ public class Register extends AppCompatActivity implements View.OnClickListener 
             case R.id.bSignUp:
                 String username = etUsername.getText().toString();
                 String password = etPassword.getText().toString();
-//                String confirmPassword = etREPassword.getText().toString();
+                String confirmPassword = etREPassword.getText().toString();
+                if(password.compareTo(confirmPassword) != 0) {
+
+                }
                 String email = etEmail.getText().toString();
-//                String confirmEmail = etCEmail.getText().toString();
+                String confirmEmail = etCEmail.getText().toString();
 
                 User registerData = new User(username, password, email);
 

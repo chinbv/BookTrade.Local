@@ -22,7 +22,7 @@ public class ProfileViewActivity extends AppCompatActivity {
         final TextView usernameDisplay = (TextView) findViewById(R.id.etUsername);
 
         //Displays Username
-        usernameDisplay.setText(user.getUserName());
+//        usernameDisplay.setText(user.getUserName());
 
         //Sets up function so that when user clicks the Edit button they are taken to the page
         //to edit their profile
@@ -37,13 +37,13 @@ public class ProfileViewActivity extends AppCompatActivity {
         //Sets up function so that when user clicks on the logout button they are taken to the
         //login page
 
-        // bLogout.setOnClickListener((new View.OnClickListener() {
-        //   @Override
-        //  public void onClick(View v) {
-        //     Intent logoutIntent = new Intent(ProfileViewActivity.this, Login.class);
-        //       ProfileViewActivity.this.startActivity(logoutIntent);
-        //   }
-        //  }));
+         bLogout.setOnClickListener((new View.OnClickListener() {
+           @Override
+          public void onClick(View v) {
+             Intent logoutIntent = new Intent(ProfileViewActivity.this, Login.class);
+               ProfileViewActivity.this.startActivity(logoutIntent);
+           }
+          }));
 
     }
 }

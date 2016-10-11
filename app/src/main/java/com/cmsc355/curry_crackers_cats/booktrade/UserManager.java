@@ -17,17 +17,24 @@ public class UserManager {
         _dbHandler = DBHandler.getInstanceWithContext(appContext);
 
         //Temporary test object to ensure that the code functions
-        User user = new User("Name", "password", "email");
+        User user = new User("brandon", "123456", "bvc@123.com");
+        _dbHandler.addUser(user);
+        user = new User("moriah", "123456", "mh@123.com");
+        _dbHandler.addUser(user);
+        user = new User("vishy", "123456", "vs@123.com");
         _dbHandler.addUser(user);
     }
 
     public boolean authenticate(String userName, String password) {
 
+        System.out.println("username is " + userName);
+        System.out.println("password is " + password);
+
         if (userName == null || password == null) {
             return false;
         }
 
-        User matchingUser = findUserWithUserName (String userName);
+        User matchingUser = _dbHandler.findUserWithUserName(userName);
         if (matchingUser == null) {
             return false;
         }
