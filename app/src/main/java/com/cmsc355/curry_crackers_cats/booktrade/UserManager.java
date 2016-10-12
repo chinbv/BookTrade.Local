@@ -15,20 +15,29 @@ public class UserManager {
     public UserManager(Context appContext) {
 
         _dbHandler = DBHandler.getInstanceWithContext(appContext);
-
+//
+//        User user = new User(username, password, email);
         //Temporary test object to ensure that the code functions
-        User user = new User("brandon", "123456", "bvc@123.com");
+//        User user = new User("brandon", "123456", "bvc@123.com");
+//        _dbHandler.addUser(user);
+//        user = new User("moriah", "123456", "mh@123.com");
+//        _dbHandler.addUser(user);
+//        user = new User("vishy", "123456", "vs@123.com");
+//        _dbHandler.addUser(user);
+    }
+
+    public User addingUser(String userName, String password, String email) {
+
+        User user = new User(userName, password, email);
         _dbHandler.addUser(user);
-        user = new User("moriah", "123456", "mh@123.com");
-        _dbHandler.addUser(user);
-        user = new User("vishy", "123456", "vs@123.com");
-        _dbHandler.addUser(user);
+
+        return user;
     }
 
     public boolean authenticate(String userName, String password) {
 
-        System.out.println("username is " + userName);
-        System.out.println("password is " + password);
+//        System.out.println("username is " + userName);
+//        System.out.println("password is " + password);
 
         if (userName == null || password == null) {
             return false;

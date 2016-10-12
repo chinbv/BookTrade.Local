@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Login extends AppCompatActivity implements View.OnClickListener {
 
@@ -43,6 +44,9 @@ public class Login extends AppCompatActivity implements View.OnClickListener {
                 if( userManager.authenticate(userName, password) == true) {
 
                     startActivity(new Intent(this, ProfileViewActivity.class));
+
+                } else {
+                    Toast.makeText(getApplicationContext(), "Wrong Username or Password",Toast.LENGTH_SHORT).show();
                 }
 
 
